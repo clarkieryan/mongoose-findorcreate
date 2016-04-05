@@ -4,9 +4,9 @@
  * MIT Licensed
  */
 
-var Promise = require('es6-promise').Promise;
-
 "use strict";
+
+require('es6-promise').polyfill();
 
 var findOrCreatePlugin = function(schema, options) {
   schema.statics.findOrCreate = function findOrCreate(conditions, doc, options, callback) {
@@ -33,7 +33,7 @@ var findOrCreatePlugin = function(schema, options) {
       doFindOrCreate.call(this, conditions, doc, options, callback);
     } else {
       //Check that we can support promises
-      if(typeof Promise !== "undefined" && Promise.toString().indexOf("[native code]") !== -1){
+      if(typeof Promise !== "undefined"){
         var that = this;
         return new Promise(function(resolve, reject){
 
