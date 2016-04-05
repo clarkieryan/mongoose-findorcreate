@@ -4,6 +4,8 @@
  * MIT Licensed
  */
 
+var Promise = require('es6-promise').Promise;
+
 "use strict";
 
 var findOrCreatePlugin = function(schema, options) {
