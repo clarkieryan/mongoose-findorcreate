@@ -6,7 +6,7 @@
 
 "use strict";
 
-require('es6-promise').polyfill();
+var Promise = require("bluebird");
 
 var findOrCreatePlugin = function(schema, options) {
   schema.statics.findOrCreate = function findOrCreate(conditions, doc, options, callback) {
